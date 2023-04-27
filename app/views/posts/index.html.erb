@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>CatApp</title>
+    <link rel="stylesheet" href="tops.css">
+        <header>
+        <div class="welcome">
+      <h1>Welcome to CatApp!</h1>
+      </div>
+      <div>
+      <p>私たちは猫が大好きです。あなたも同じですよね。ここにかわいい猫の写真があります。あなたの日を明るくします。</p>
+      </div>
+    </header>
+  </head>
+  <body>
+    <% if user_signed_in? %>
+      <%= link_to current_user.username%>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <% else %>
+      <%= link_to "ログイン", new_user_session_path %>
+      <%= link_to "新規登録", new_user_registration_path %>
+      <% end %>
+    <%= link_to "投稿する", new_post_path %>
+
+    <div class="bg-image" >
+    <% if user_signed_in? %>
+       <h1>投稿一覧</h1>
+        <% @posts.each do |post| %>
+        <div class="image-wrapper">
+          <h3>タイトル</h3>
+          <h2><%= post.title %></h2><br />
+          <%= image_tag post.image.variant(resize: '500x500') if post.image.attached? %>
+          <h3>説明</h3>
+          <p><%= post.description %></p>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+    </div>
+
+  </body>
+</html>

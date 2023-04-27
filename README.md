@@ -52,7 +52,7 @@ CatAppは猫の写真を共有するためのソーシャルメディアアプ�
 カラム: title (String, タイトル)  
 カラム: image (String, 画像URL)  
 カラム: description (Text, 説明)  
-カラム: user_id (Foreign Key, usersテーブルのid)  
+カラム: user (Foreign Key, usersテーブルのid)  
 
 テーブル: comments
 

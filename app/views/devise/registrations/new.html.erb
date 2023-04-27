@@ -28,20 +28,9 @@
 
       <div class="field">
          <%= f.label :image %><br />
-         <%= f.file_field :image, id: 'image-upload' %>
-         <div id="image-preview"></div>
+         <%= f.file_field :image %>
       </div>
-
-        <script>
-          // フォームが送信される前に、画像をプレビュー表示する
-          $('#image-upload').on('change', function() {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-              $('#image-preview').html('<img src="' + e.target.result + '" width="100" height="100"/>');
-            }
-                reader.readAsDataURL(this.files[0]);
-              });
-        </script>
+      
       <div class="actions"><br />
         <%= f.submit "Sign up" %>
       </div>
