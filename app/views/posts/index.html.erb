@@ -30,7 +30,7 @@
         <div class="image-wrapper">
           <h3>タイトル</h3>
           <h2><%= post.title %></h2><br />
-          <%= image_tag post.image.variant(resize: '500x500') if post.image.attached? %>
+          <%= image_tag post.image.variant(resize: '750x750') if post.image.attached? %>
           <h3>説明</h3>
           <p><%= post.description %></p>
         </div>
